@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <div>
+      <div class="heading" >
+        <h3 class="headingtitle">Task Manager</h3>
+      </div>
+      
+      <input type="text" name="task" placeholder="add Task" id="name" class="addTask" />
+      <input type="button" name="addTask" value="add Task" onclick="add()" class="addtaskbtn"/>
+      <br />
+      <br />
+      <input type="button" value="Reset Active Task" onclick="reset()" class="resetbtn" /> <br />
+      <input type="button" value="Reset Done Task" onclick="remove()" class="removebtn"/> <br />
+      <h3 class="active" >Active Task</h3>
+
+      <ul id="demo" class="activelist " >
+
+      </ul>
+      <h3 class="done">Done Task</h3>
+      <ul id="end" class="donelist">
+        
+      </ul>
+    </div>
+    <script>
+      var li;
+      function add() {
+        let name = document.getElementById("name").value;
+        if (name == "") {
+          alert("plz add value");
+        } else {
+          let demo = document.getElementById("demo");
+          let checkbtn = document.createElement("input");
+          checkbtn.setAttribute("type", "checkbox");
+          checkbtn.setAttribute("isChecked","true")
+          let delbtn = document.createElement("button");
+          delbtn.setAttribute("type", "button");
+          delbtn.setAttribute("class", "del");
+          delbtn.innerText = "Delete";
+          let btn = document.createElement("button");
+          btn.setAttribute("type", "button");
+          btn.setAttribute("class", "btn");
+          btn.innerText = "Edit";
+
+          let li = document.createElement("li");
+          li.textContent = name;
+          demo.appendChild(li);
+          li.appendChild(checkbtn);
+          li.appendChild(delbtn);
+          li.appendChild(btn);
+
+          checkbtn.addEventListener("click", function () {
+           
+            let parent = li.parentNode;
+            console.log(parent);
+            if (parent.id == "demo") {
+              end.appendChild(li);
+              li.style.textDecoration = "line-through";
+              li.setAttribute("class", "abc");
+            } else {
+              demo.appendChild(li);
+              li.style.textDecoration = "none";
+            }
+      
+           
+          });
+
+          btn.addEventListener("click", function () {
+            let val = prompt("enter value");
+            li.innerText = val;
+            li.appendChild(checkbtn);
+            li.appendChild(delbtn);
+            li.appendChild(btn);
+          });
+
+          delbtn.addEventListener("click", function () {
+            console.log(li);
+            let parent = li.parentNode;
+            console.log(parent);
+            if (parent.id === "end") {
+              end.removeChild(li);
+            } else {
+              demo.removeChild(li);
+            }
+          });
+        }
+        document.getElementById("name").value = "";
+      }
+
+      function reset() {
+        document.getElementById("name").value = "";
+      
+        let demo = document.getElementById("demo");
+    
+        let li = document.querySelectorAll("li");
+        console.log(li)
+        let length = li.length;
+        console.log(length)
+        for (var i = 0; i < length; i++) {
+          demo.removeChild(li[i]);
+        }
+      }
+
+      function remove() {
+        let end = document.getElementById("end");
+        let li = document.querySelectorAll(".abc");
+        console.log(li);
+        let length = li.length;
+        for (var i = 0; i < length; i++) {
+          console.log(length, li, i);
+          end.removeChild(li[i]);
+        }
+      }
+    </script>
+  </body>
+</html>

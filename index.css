@@ -1,0 +1,142 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Heading Styles */
+
+.heading {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .headingtitle {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+/* Input Styles */
+.addTask {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.addtaskbtn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.resetbtn,
+.removebtn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+/* Task List Styles */
+.active,
+.done {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #5a5a5a;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.activelist,
+.donelist {
+  list-style-type: none;
+  padding: 0;
+}
+
+.activelist li,
+.donelist li {
+  border: 2px solid;
+  padding: 9px 23px;
+  border-radius: 5px;
+  background: #e3e3e4;
+  margin-bottom: 5px;
+}
+
+/* Checkbox Styles */
+[type="checkbox"] {
+  height: 22px;
+  margin-right: 0px;
+  width: 40px;
+}
+
+[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+}
+
+/* Button Styles */
+button {
+  padding: 5px 10px;
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+}
+
+.btn {
+  margin-left: 10px;
+  background: rgb(0, 140, 51);
+  color: white;
+  margin-left: 10px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.del {
+  margin-left: 10px;
+  background: red;
+  color: white;
+  margin-left: 10px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+  .addTask,
+  .addtaskbtn,
+  .resetbtn,
+  .removebtn {
+    width: auto;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .addTask,
+  .addtaskbtn,
+  .resetbtn,
+  .removebtn {
+    width: 100%;
+  }
+
+  .activelist li,
+  .donelist li {
+    font-size: 14px;
+  }
+}
